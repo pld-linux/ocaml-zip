@@ -8,6 +8,7 @@ Group:		Libraries
 Vendor:		Xavier Leroy <Xavier.Leroy@inria.fr>
 URL:		http://pauillac.inria.fr/~xleroy/software.html
 Source0:	http://caml.inria.fr/distrib/bazar-ocaml/camlzip-%{version}.tar.gz
+# Source0-md5:	728940dc0958493274314d576c16ef68
 BuildRequires:	zlib-devel
 BuildRequires:	ocaml >= 3.04-7
 %requires_eq	ocaml-runtime
