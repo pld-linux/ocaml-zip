@@ -83,8 +83,6 @@ archive(native) = "zip.cmxa"
 linkopts = ""
 EOF
 
-gzip -9nf README *.mli
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -96,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README *.mli
 %{_libdir}/ocaml/zip/*.cm[ixa]*
 %{_libdir}/ocaml/zip/*.a
 %{_examplesdir}/%{name}-%{version}
