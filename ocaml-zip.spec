@@ -2,7 +2,7 @@ Summary:	Zlib binding for OCaml
 Summary(pl):	Wi±zania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.01
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Vendor:		Xavier Leroy <Xavier.Leroy@inria.fr>
@@ -10,7 +10,7 @@ URL:		http://pauillac.inria.fr/~xleroy/software.html
 Source0:	http://caml.inria.fr/distrib/bazar-ocaml/camlzip-%{version}.tar.gz
 # Source0-md5:	728940dc0958493274314d576c16ef68
 BuildRequires:	zlib-devel
-BuildRequires:	ocaml >= 3.04-7
+BuildRequires:	ocaml >= 3.07
 %requires_eq	ocaml-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,12 +64,13 @@ tej biblioteki.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/stublibs
 
 %{__make} install installopt \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml/zip \
 	OCAMLC="echo $RPM_BUILD_ROOT; true"
 
-(cd $RPM_BUILD_ROOT%{_libdir}/ocaml && ln -s zip/dll*.so .)
+mv $RPM_BUILD_ROOT%{_libdir}/ocaml/zip/dll*.so $RPM_BUILD_ROOT%{_libdir}/ocaml/stublibs
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -r test/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
@@ -89,13 +90,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_libdir}/ocaml/zip
-%attr(755,root,root) %{_libdir}/ocaml/zip/*.so
-%{_libdir}/ocaml/*.so
+%attr(755,root,root) %{_libdir}/ocaml/stublibs/*.so
 
 %files devel
 %defattr(644,root,root,755)
 %doc README *.mli
+%dir %{_libdir}/ocaml/zip
 %{_libdir}/ocaml/zip/*.cm[ixa]*
 %{_libdir}/ocaml/zip/*.a
 %{_examplesdir}/%{name}-%{version}
