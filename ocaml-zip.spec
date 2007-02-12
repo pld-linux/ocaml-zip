@@ -1,6 +1,6 @@
 %define		ocaml_ver	1:3.09.2
 Summary:	Zlib binding for OCaml
-Summary(pl):	Wi±zania Zlib dla OCamla
+Summary(pl.UTF-8):   WiÄ…zania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.01
 Release:	9
@@ -23,17 +23,17 @@ formats.
 This package contains files needed to run bytecode executables using
 this library.
 
-%description -l pl
-Biblioteka ta pozwala na dostêp do plików w formacie ZIP i GZIP jak
-równie¿ dla plików JAR Javy z poziomy OCamla. Udostêpnia ona funkcje
-do czytania i pisania do plików w tych formatach.
+%description -l pl.UTF-8
+Biblioteka ta pozwala na dostÄ™p do plikÃ³w w formacie ZIP i GZIP jak
+rÃ³wnieÅ¼ dla plikÃ³w JAR Javy z poziomy OCamla. UdostÄ™pnia ona funkcje
+do czytania i pisania do plikÃ³w w tych formatach.
 
-Pakiet ten zawiera binaria potrzebne do uruchamiania programów
-u¿ywaj±cych tej biblioteki.
+Pakiet ten zawiera binaria potrzebne do uruchamiania programÃ³w
+uÅ¼ywajÄ…cych tej biblioteki.
 
 %package devel
 Summary:	Zlib binding for OCaml - development part
-Summary(pl):	Wi±zania Zlib dla OCamla - cze¶æ programistyczna
+Summary(pl.UTF-8):   WiÄ…zania Zlib dla OCamla - czeÅ›Ä‡ programistyczna
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %requires_eq	ocaml
@@ -47,12 +47,12 @@ formats.
 This package contains files needed to develop OCaml programs using
 this library.
 
-%description devel -l pl
-Biblioteka ta pozwala na dostêp do plików w formacie ZIP i GZIP jak
-równie¿ dla plików JAR Javy z poziomy OCamla. Udostêpnia ona funkcje
-do czytania i pisania do plików w tych formatach.
+%description devel -l pl.UTF-8
+Biblioteka ta pozwala na dostÄ™p do plikÃ³w w formacie ZIP i GZIP jak
+rÃ³wnieÅ¼ dla plikÃ³w JAR Javy z poziomy OCamla. UdostÄ™pnia ona funkcje
+do czytania i pisania do plikÃ³w w tych formatach.
 
-Pakiet ten zawiera pliki niezbêdne do tworzenia programów u¿ywaj±cych
+Pakiet ten zawiera pliki niezbÄ™dne do tworzenia programÃ³w uÅ¼ywajÄ…cych
 tej biblioteki.
 
 %prep
