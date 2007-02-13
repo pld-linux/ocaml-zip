@@ -1,6 +1,6 @@
 %define		ocaml_ver	1:3.09.2
 Summary:	Zlib binding for OCaml
-Summary(pl.UTF-8):   Wiązania Zlib dla OCamla
+Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.01
 Release:	9
@@ -33,7 +33,7 @@ używających tej biblioteki.
 
 %package devel
 Summary:	Zlib binding for OCaml - development part
-Summary(pl.UTF-8):   Wiązania Zlib dla OCamla - cześć programistyczna
+Summary(pl.UTF-8):	Wiązania Zlib dla OCamla - cześć programistyczna
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 %requires_eq	ocaml
