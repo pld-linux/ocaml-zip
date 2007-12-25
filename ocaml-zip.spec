@@ -2,13 +2,13 @@
 Summary:	Zlib binding for OCaml
 Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
-Version:	1.01
-Release:	9
+Version:	1.03
+Release:	1
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
 Source0:	http://caml.inria.fr/distrib/bazar-ocaml/camlzip-%{version}.tar.gz
-# Source0-md5:	728940dc0958493274314d576c16ef68
+# Source0-md5:	65cee9abf1df6544cae554b94128d441
 BuildRequires:	ocaml >= %{ocaml_ver}
 BuildRequires:	zlib-devel
 %requires_eq	ocaml-runtime
