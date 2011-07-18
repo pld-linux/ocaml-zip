@@ -3,7 +3,7 @@ Summary:	Zlib binding for OCaml
 Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.04
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
@@ -69,6 +69,8 @@ install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/stublibs
 %{__make} install installopt \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml/zip \
 	OCAMLC="echo $RPM_BUILD_ROOT; true"
+
+install zlib.cm[ixa]* $RPM_BUILD_ROOT%{_libdir}/ocaml/zip
 
 mv $RPM_BUILD_ROOT%{_libdir}/ocaml/zip/dll*.so $RPM_BUILD_ROOT%{_libdir}/ocaml/stublibs
 
