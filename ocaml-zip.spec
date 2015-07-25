@@ -1,15 +1,23 @@
-%define		ocaml_ver	1:3.09.2
+#
+# Conditional build:
+%bcond_without	ocaml_opt	# skip building native optimized binaries (bytecode is always built)
+
+# not yet available on x32 (ocaml 4.02.1), remove when upstream will support it
+%ifnarch %{ix86} %{x8664} arm aarch64 ppc sparc sparcv9
+%undefine	with_ocaml_opt
+%endif
+
 Summary:	Zlib binding for OCaml
 Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.04
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
 Source0:	http://caml.inria.fr/distrib/bazar-ocaml/camlzip-%{version}.tar.gz
 # Source0-md5:	b3930f4f2e2563b9a5e1b17aa455e635
-BuildRequires:	ocaml >= %{ocaml_ver}
+BuildRequires:	ocaml >= 1:3.09.2
 BuildRequires:	zlib-devel
 %requires_eq	ocaml-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,13 +68,14 @@ tej biblioteki.
 
 %build
 %{__cc} %{rpmcflags} -fPIC -c zlibstubs.c
-%{__make} all allopt OCAMLC=ocamlc
+%{__make} all %{?with_ocaml_opt:allopt} \
+	OCAMLC=ocamlc
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/stublibs
 
-%{__make} install installopt \
+%{__make} install %{?with_ocaml_opt:installopt} \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml/zip \
 	OCAMLC="echo $RPM_BUILD_ROOT; true"
 
@@ -98,7 +107,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README *.mli
 %dir %{_libdir}/ocaml/zip
-%{_libdir}/ocaml/zip/*.cm[ixa]*
-%{_libdir}/ocaml/zip/*.a
+%{_libdir}/ocaml/zip/*.cma
+%{_libdir}/ocaml/zip/*.cm[ix]
+%{_libdir}/ocaml/zip/*.mli
+%{_libdir}/ocaml/zip/libcamlzip.a
+%if %{with ocaml_opt}
+%{_libdir}/ocaml/zip/*.cmxa
+%{_libdir}/ocaml/zip/zip.a
+%endif
 %{_examplesdir}/%{name}-%{version}
 %{_libdir}/ocaml/site-lib/zip
