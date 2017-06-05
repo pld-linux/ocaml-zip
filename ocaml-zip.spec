@@ -10,13 +10,14 @@
 Summary:	Zlib binding for OCaml
 Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
-Version:	1.04
-Release:	6
+Version:	1.07
+%define	gitver	rel107
+Release:	1
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
-Source0:	http://caml.inria.fr/distrib/bazar-ocaml/camlzip-%{version}.tar.gz
-# Source0-md5:	b3930f4f2e2563b9a5e1b17aa455e635
+Source0:	https://github.com/xavierleroy/camlzip/archive/%{gitver}/camlzip-%{version}.tar.gz
+# Source0-md5:	8babccb584dfd4eb7b98901122e818a9
 BuildRequires:	ocaml >= 1:3.09.2
 BuildRequires:	zlib-devel
 %requires_eq	ocaml-runtime
@@ -64,7 +65,7 @@ Pakiet ten zawiera pliki niezbędne do tworzenia programów używających
 tej biblioteki.
 
 %prep
-%setup -q -n camlzip-%{version}
+%setup -q -n camlzip-%{gitver}
 
 %build
 %{__cc} %{rpmcflags} -fPIC -c zlibstubs.c
