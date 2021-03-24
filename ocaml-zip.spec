@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.07
 %define	gitver	rel107
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/ocaml/stublibs/*.so
+%if %{with ocaml_opt}
+%{_libdir}/ocaml/zip/*.cmxs
+%endif
 
 %files devel
 %defattr(644,root,root,755)
