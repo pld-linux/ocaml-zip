@@ -12,7 +12,7 @@ Summary(pl.UTF-8):	Wiązania Zlib dla OCamla
 Name:		ocaml-zip
 Version:	1.07
 %define	gitver	rel107
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 URL:		http://pauillac.inria.fr/~xleroy/software.html
@@ -87,8 +87,7 @@ mv $RPM_BUILD_ROOT%{_libdir}/ocaml/zip/dll*.so $RPM_BUILD_ROOT%{_libdir}/ocaml/s
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -r test/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/zip
-cat > $RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/zip/META <<EOF
+cat > $RPM_BUILD_ROOT%{_libdir}/ocaml/zip/META <<EOF
 requires = ""
 version = "%{version}"
 directory = "+zip"
@@ -111,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README *.mli
 %dir %{_libdir}/ocaml/zip
+%{_libdir}/ocaml/zip/META
 %{_libdir}/ocaml/zip/*.cma
 %{_libdir}/ocaml/zip/*.cm[ix]
 %{_libdir}/ocaml/zip/*.mli
@@ -120,4 +120,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ocaml/zip/zip.a
 %endif
 %{_examplesdir}/%{name}-%{version}
-%{_libdir}/ocaml/site-lib/zip
